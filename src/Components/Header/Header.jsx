@@ -1,5 +1,5 @@
 import React from 'react'
-import Logo_high from '../assets/Logo_high.png'
+import Logo_high from '../../assets/Logo_high.png'
 import styles from './Header.module.css'
 import '@fontsource/inter';
 import { Link } from '@mui/joy';

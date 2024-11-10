@@ -1,0 +1,14 @@
+.mainContainer{
+display: flex;
+font-family: 'Inter', sans-serif;
+flex-direction: column;
+align-items: center;
+}
+
+.headingContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin-top: 50px;
+}

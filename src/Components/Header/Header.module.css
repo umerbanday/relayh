@@ -1,6 +1,7 @@
 .mainContainer{
 display: flex;
 font-family: 'Inter', sans-serif;
+align-self: flex-start;
 }
 .logo{
    scale: 0.5;
