@@ -7,7 +7,7 @@ import { Link } from '@mui/joy';
 function Header() {
   return (
     <div className={styles.mainContainer}>
-        <img src={Logo_high} className={styles.logo} alt="logo" />
+        <img src={Logo_high} height={35} className={styles.logo} alt="logo" />
         <div className={styles.links}>
             <Link color='neutral' underline='hover'>
             Home

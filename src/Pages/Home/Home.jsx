@@ -1,8 +1,10 @@
 import React from 'react'
-import Header from '../../Components/Header/Header'
+import Header from '../../components/Header/Header'
 import styles from './Home.module.css'
 import { Typography ,Input, Button} from '@mui/joy'
 import SearchIcon from '@mui/icons-material/Search';  
+import RelayGrid from '../../components/RelayGrid/RelayGrid';
+import LazyImage from '../../utils/LazyImaga';
 
 function Home() {
   return (
@@ -10,6 +12,7 @@ function Home() {
         <Header/>
         <Heading/>
         <SearchBar/>
+        <RelayGrid/>
         
     </div>
   )
