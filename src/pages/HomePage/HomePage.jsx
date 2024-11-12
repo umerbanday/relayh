@@ -5,7 +5,7 @@ import { Typography ,Input, Button} from '@mui/joy'
 import SearchIcon from '@mui/icons-material/Search';  
 import RelayGrid from '../../components/RelayGrid/RelayGrid';
 
-function Home() {
+function HomePage() {
   return (
     <div className={styles.mainContainer}>
         <Header/>
@@ -56,4 +56,4 @@ function SearchBar() {
   )
 }
 
-export default Home
+export default HomePage

@@ -1,11 +1,11 @@
 import './App.css';
 import '@fontsource/inter';
-import Home from './pages/Home/Home.jsx';
+import HomePage from './pages/HomePage/HomePage';
 
 
 function App() {
   return (
-    <Home/>
+    <HomePage/>
   );
 }
 
