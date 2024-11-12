@@ -1,6 +1,6 @@
 import React from "react";
 import RelaysData from "../../data/RelaysData";
-import RelayCard from "../RelayCard/RelayCard";
+import RelayCard from "../relaycard/RelayCard";
 import styles from './RelayGrid.module.css'
 
 const RelayGrid = () => {
