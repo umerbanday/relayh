@@ -46,10 +46,6 @@ function SearchBar() {
           fullWidth
           startDecorator={<SearchIcon />}
         />
-        <Button variant='solid' color="primary">
-          Search
-
-        </Button>
     
     </div>
 

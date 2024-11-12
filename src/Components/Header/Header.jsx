@@ -9,13 +9,10 @@ function Header() {
     <div className={styles.mainContainer}>
         <img src={Logo_high} height={35} className={styles.logo} alt="logo" />
         <div className={styles.links}>
-            <Link color='neutral' underline='hover'>
+            <Link level='body-sm' color='neutral' underline='hover'>
             Home
             </Link>
-            <Link color='neutral' underline='hover'>
-            Docs
-            </Link>
-            <Link color='neutral' underline='hover'>
+            <Link level='body-sm'  color='neutral' underline='hover'>
             About
             </Link>
         </div>
