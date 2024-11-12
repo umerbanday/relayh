@@ -1,6 +1,6 @@
 import './App.css';
 import '@fontsource/inter';
-import HomePage from './pages/HomePage/HomePage';
+import HomePage from '../src/pages/HomePage/HomePage';
 
 
 function App() {
