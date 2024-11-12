@@ -1,5 +1,5 @@
 import React from 'react'
-import Header from '../../components/Header/Header'
+import Header from '../../../src/components/Header/Header'
 import styles from './Home.module.css'
 import { Typography ,Input, Button} from '@mui/joy'
 import SearchIcon from '@mui/icons-material/Search';  
