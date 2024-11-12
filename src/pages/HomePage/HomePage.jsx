@@ -1,9 +1,10 @@
 import React from 'react'
-import Header from '../../components/header/Header'
 import styles from './Home.module.css'
 import { Typography ,Input, Button} from '@mui/joy'
 import SearchIcon from '@mui/icons-material/Search';  
-import RelayGrid from '../../components/relayGrid/RelayGrid';
+import RelayGrid from '../../Components/RelayGrid/RelayGrid'
+import Header from '../../Components/Header/Header'
+
 
 function HomePage() {
   return (
