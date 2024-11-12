@@ -1,6 +1,7 @@
 .mainContainer{
 position: fixed;
 display: flex;
+z-index: 2000;
 width:100%;
 background-color: rgb(252, 246, 239);
 font-family: 'Inter', sans-serif;
