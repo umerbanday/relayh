@@ -13,7 +13,7 @@ const RelayCard = ({ relay }) => {
       <AspectRatio color='white' minHeight="120px" maxHeight="200px">
         <LazyImage src={relay.image}/>
       </AspectRatio>
-      <CardContent sx={{borderColor:'lightgrey',borderStyle:"solid",borderWidth:"0.2px",borderRadius:"5px",padding:"20px",paddingTop:"0px",paddingBottom:"10px",boxSizing:"border-box"}} orientation="vertical">
+      <CardContent sx={{borderColor:'lightgrey',bgcolor:"rgb(253,253,253)",borderStyle:"solid",borderWidth:"0.2px",borderRadius:"5px",padding:"20px",paddingTop:"0px",paddingBottom:"10px",boxSizing:"border-box"}} orientation="vertical">
      
       <Divider sx={{ '--Divider-childPosition': `50%` ,fontWeight:"400",marginTop:"10px",marginBottom:"10px"}}>
     Functions Available
