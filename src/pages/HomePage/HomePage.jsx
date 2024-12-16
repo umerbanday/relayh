@@ -45,16 +45,85 @@ function HomePage() {
 function Heading() {
   return (
     <div className={styles.headingContainer}>
-      <Typography level='h1'>
-        Welcome to the {' '}
-        <Typography level='h1' variant='soft' color='danger'>Relay</Typography>
-        <Typography level='h1' variant='soft'  >hub</Typography>
+      <Typography 
+        level='h1' 
+        sx={{ 
+          fontSize: {
+            xs: '1.8rem', // Mobile
+            sm: '2rem',   // Small devices
+            md: '3rem'    // Medium and larger devices
+          },
+          textAlign: 'center',
+          lineHeight: 1.2
+        }}
+      >
+        Welcome to the{' '}
+        <Typography 
+          component="span" 
+          level='h1' 
+          variant='soft' 
+          color='danger'
+          sx={{ 
+            fontSize: {
+              xs: '1.8rem', // Mobile
+              sm: '2rem',   // Small devices
+              md: '3rem'
+            }
+          }}
+        >
+          Relay
+        </Typography>{' '}
+        <Typography 
+          component="span" 
+          level='h1' 
+          variant='soft'
+          sx={{ 
+            fontSize: {
+              xs: '1.8rem', // Mobile
+            sm: '2rem',   // Small devices
+            md: '3rem'
+            }
+          }}
+        >
+          hub
+        </Typography>
       </Typography>
-      <Typography level='h4' textAlign={'center'} sx={{ maxWidth: 600 }} >
-        Your comprehensive source for all protection relay information including{' '}<Typography color='success' variant='outlined'> manuals</Typography> , <Typography color='danger' variant='soft'>settings</Typography>, and more.
+      
+      <Typography 
+        level='h4' 
+        sx={{ 
+          maxWidth: {
+            xs: '100%',  // Full width on mobile
+            sm: '500px'  // Constrained width on larger screens
+          },
+          textAlign: 'center',
+          fontSize: {
+            xs: '1rem',   // Smaller font on mobile
+            sm: '1.125rem' // Slightly larger on larger screens
+          },
+          px: 2 // Horizontal padding
+        }}
+      >
+        Your comprehensive source for all protection relay information including{' '}
+        <Typography 
+          color='success' 
+          variant='outlined'
+          component="span"
+        >
+          manuals
+        </Typography>
+        , {' '}
+        <Typography 
+          color='danger' 
+          variant='soft'
+          component="span"
+        >
+          settings
+        </Typography>
+        , and more.
       </Typography>
     </div>
-  )
+  );
 }
 
 //searchbar section containing the searchbar and the search button

@@ -378,19 +378,19 @@ export default function LineParameterCalculator() {
               }}
             >
               <Typography level="h6" sx={{ mb: 2 }}>Results</Typography>
-              <Typography sx={{ mb: 2 }}>Base Impedance: {result.baseImpedance} Ω</Typography>
+              {/*<Typography sx={{ mb: 2 }}>Base Impedance: {result.baseImpedance} Ω</Typography>*/}
               <Grid container spacing={2}>
                 <Grid xs={12} md={6}>
                   <Typography fontWeight="lg">Positive Sequence:</Typography>
-                  <Typography>R: {result.positiveSeq.R}</Typography>
-                  <Typography>X: {result.positiveSeq.X}</Typography>
-                  <Typography>B: {result.positiveSeq.B}</Typography>
+                  <Typography>R: {result.positiveSeq.R} Ω/km</Typography>
+                  <Typography>X: {result.positiveSeq.X} Ω/km</Typography>
+                  <Typography>B: {result.positiveSeq.B} Ω/km</Typography>
                 </Grid>
                 <Grid xs={12} md={6}>
                   <Typography fontWeight="lg">Zero Sequence:</Typography>
-                  <Typography>R0: {result.zeroSeq.R0}</Typography>
-                  <Typography>X0: {result.zeroSeq.X0}</Typography>
-                  <Typography>B0: {result.zeroSeq.B0}</Typography>
+                  <Typography>R0: {result.zeroSeq.R0} Ω/km</Typography>
+                  <Typography>X0: {result.zeroSeq.X0} Ω/km</Typography>
+                  <Typography>B0: {result.zeroSeq.B0} Ω/km</Typography>
                 </Grid>
               </Grid>
             </Sheet>
