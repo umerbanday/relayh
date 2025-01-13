@@ -80,41 +80,54 @@ const ResultDisplay = ({ results, level = 0 }) => {
   ));
 };
 
+const stickyButtonStyles = {
+  position: 'sticky',
+  bottom: 0,
+  left: 0,
+  width: '100%',
+  backgroundColor: '#fff',
+  boxShadow: '0 -2px 10px rgba(0, 0, 0, 0.1)',
+  padding: '1rem 24px',
+  boxSizing: 'border-box'
+};
+
 const CalculatorView = ({ currentFunctionConfig, dynamicOptions, handleInputChange, onCalculate }) => (
-  <>
-    <Grid  container spacing={2}>
-      {currentFunctionConfig.inputs.map((input) => (
-        <Grid xs={12} md={6} key={input.id}>
-          {input.type === 'select' ? (
-            <Select
-              placeholder={input.label}
-              onChange={(_, value) => handleInputChange(input.id, value)}
-              sx={{ width: '100%' }}
-            >
-              {(dynamicOptions[input.id] || input.options).map((opt) => (
-                <Option key={opt} value={opt}>
-                  {opt}
-                </Option>
-              ))}
-            </Select>
-          ) : (
-            <Input
-              type={input.type}
-              placeholder={input.label}
-              required={input.required}
-              onChange={(e) => handleInputChange(input.id, parseFloat(e.target.value))}
-              sx={{ width: '100%' }}
-            />
-          )}
-        </Grid>
-      ))}
-    </Grid>
-    <Box sx={{ mt: 3, textAlign: 'center' }}>
-      <Button onClick={onCalculate} size="lg">
+  <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100%' }}>
+    <Box sx={{ flexGrow: 1, overflowY: 'auto', pb: 2 }}>
+      <Grid container spacing={2}>
+        {currentFunctionConfig.inputs.map((input) => (
+          <Grid xs={12} md={6} key={input.id}>
+            {input.type === 'select' ? (
+              <Select
+                placeholder={input.label}
+                onChange={(_, value) => handleInputChange(input.id, value)}
+                sx={{ width: '100%' }}
+              >
+                {(dynamicOptions[input.id] || input.options).map((opt) => (
+                  <Option key={opt} value={opt}>
+                    {opt}
+                  </Option>
+                ))}
+              </Select>
+            ) : (
+              <Input
+                type={input.type}
+                placeholder={input.label}
+                required={input.required}
+                onChange={(e) => handleInputChange(input.id, parseFloat(e.target.value))}
+                sx={{ width: '100%' }}
+              />
+            )}
+          </Grid>
+        ))}
+      </Grid>
+    </Box>
+    <div style={stickyButtonStyles}>
+      <Button onClick={onCalculate} size="lg" fullWidth>
         Calculate Settings
       </Button>
-    </Box>
-  </>
+    </div>
+  </Box>
 );
 
 const ResultView = ({ results, onBack }) => (
@@ -213,13 +226,15 @@ export default function RelaySettingCalculator({ initialFunction, relayModel, on
         variant="outlined"
         sx={{
           maxWidth: 600,
-       
+          zIndex: 9999,
           bgcolor: 'background.paper',
           p: 3,
           borderRadius: 'md',
           boxShadow: 'lg',
           maxHeight: '90vh',
-          overflow: 'auto'
+          overflow: 'hidden', // Changed from 'auto' to 'hidden'
+          display: 'flex',
+          flexDirection: 'column'
         }}
       >
         <Box sx={{ display: 'flex', justifyContent: 'flex-end', mb: 2 }}>
