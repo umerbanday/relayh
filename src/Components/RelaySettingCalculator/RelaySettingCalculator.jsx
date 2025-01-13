@@ -213,7 +213,7 @@ export default function RelaySettingCalculator({ initialFunction, relayModel, on
         variant="outlined"
         sx={{
           maxWidth: 600,
-          width: '100%',
+       
           bgcolor: 'background.paper',
           p: 3,
           borderRadius: 'md',

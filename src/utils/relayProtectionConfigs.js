@@ -2,42 +2,7 @@ import { transmissionLineData } from "../data/transmissionLineData";
 import { calculateLineParameters } from './lineParameterUtils';
 
 export const relayProtectionConfigs = {
-  'SEL-751A': {
-    'overcurrent-51': {
-      name: 'Time Overcurrent (51)',
-      inputs: [
-        { id: 'ct_ratio', label: 'CT Ratio', type: 'number', required: true },
-        { id: 'full_load_current', label: 'Full Load Current (A)', type: 'number', required: true },
-        { id: 'fault_current', label: 'Maximum Fault Current (A)', type: 'number', required: true },
-        { id: 'curve_type', label: 'Time-Current Curve', type: 'select', 
-          options: ['U1-Moderately Inverse', 'U2-Inverse', 'U3-Very Inverse', 'U4-Extremely Inverse'] }
-      ],
-      calculate: (inputs) => {
-        const pickup = (inputs.full_load_current * 1.5) / inputs.ct_ratio;
-        const tms = 0.1;
-        return {
-          'Pickup Current (A)': pickup.toFixed(2),
-          'Time Dial': tms.toFixed(2),
-          'Curve Type': inputs.curve_type
-        };
-      }
-    }
-  },
-  'Siemens-7SJ62': {
-    'overcurrent-51': {
-      name: 'Time Overcurrent (51)',
-      inputs: [
-        { id: 'ct_ratio', label: 'CT Ratio', type: 'number', required: true },
-        { id: 'full_load_current', label: 'Full Load Current (A)', type: 'number', required: true },
-        { id: 'curve_type', label: 'Time-Current Curve', type: 'select', 
-          options: ['IEC Normal Inverse', 'IEC Very Inverse', 'IEC Extremely Inverse'] }
-      ],
-      calculate: (inputs) => {
-        // Siemens-specific calculation logic
-        return { /* calculation results */ };
-      }
-    }
-  },
+
   'Schneider P442': {
     'distance-21': {
       name: 'Distance Protection (21)',
@@ -231,6 +196,42 @@ export const relayProtectionConfigs = {
       }
     },
     // ...other protection functions for P442...
+  },
+  'SEL-751A': {
+    'overcurrent-51': {
+      name: 'Time Overcurrent (51)',
+      inputs: [
+        { id: 'ct_ratio', label: 'CT Ratio', type: 'number', required: true },
+        { id: 'full_load_current', label: 'Full Load Current (A)', type: 'number', required: true },
+        { id: 'fault_current', label: 'Maximum Fault Current (A)', type: 'number', required: true },
+        { id: 'curve_type', label: 'Time-Current Curve', type: 'select', 
+          options: ['U1-Moderately Inverse', 'U2-Inverse', 'U3-Very Inverse', 'U4-Extremely Inverse'] }
+      ],
+      calculate: (inputs) => {
+        const pickup = (inputs.full_load_current * 1.5) / inputs.ct_ratio;
+        const tms = 0.1;
+        return {
+          'Pickup Current (A)': pickup.toFixed(2),
+          'Time Dial': tms.toFixed(2),
+          'Curve Type': inputs.curve_type
+        };
+      }
+    }
+  },
+  'Siemens-7SJ62': {
+    'overcurrent-51': {
+      name: 'Time Overcurrent (51)',
+      inputs: [
+        { id: 'ct_ratio', label: 'CT Ratio', type: 'number', required: true },
+        { id: 'full_load_current', label: 'Full Load Current (A)', type: 'number', required: true },
+        { id: 'curve_type', label: 'Time-Current Curve', type: 'select', 
+          options: ['IEC Normal Inverse', 'IEC Very Inverse', 'IEC Extremely Inverse'] }
+      ],
+      calculate: (inputs) => {
+        // Siemens-specific calculation logic
+        return { /* calculation results */ };
+      }
+    }
   }
   // Add more relay models as needed
 };
