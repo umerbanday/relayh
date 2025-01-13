@@ -227,12 +227,10 @@ export default function RelaySettingCalculator({ initialFunction, relayModel, on
         variant="outlined"
         sx={{
           maxWidth: 600,
-          zIndex: 9999,
           position:"relative",
           bgcolor: 'background.paper',
           p: 3,
           borderRadius: 'md',
-          boxShadow: 'lg',
           maxHeight: '75vh',
           marginTop: '7vh',
           overflow: 'hidden', // Changed from 'auto' to 'hidden'

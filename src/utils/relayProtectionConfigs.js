@@ -18,11 +18,11 @@ export const relayProtectionConfigs = {
         { id: 'protected_line_config', label: 'Protected Line Configuration', type: 'select', options: [] },
         { id: 'protected_conductor_type', label: 'Protected Line Conductor', type: 'select', options: [] },
         // Longest adjacent line inputs
-        { id: 'longest_adjacent_line', label: 'Longest Adjacent Line Length (km)', type: 'number', required: true },
+        { id: 'longest_adjacent_line', label: 'Longest Line at Adjacent Station (km)', type: 'number', required: true },
         { id: 'adjacent_line_config', label: 'Adjacent Line Configuration', type: 'select', options: [] },
         { id: 'adjacent_conductor_type', label: 'Adjacent Line Conductor', type: 'select', options: [] },
         // Shortest local line inputs
-        { id: 'shortest_local_line', label: 'Shortest Local Line Length (km)', type: 'number', required: true },
+        { id: 'shortest_local_line', label: 'Shortest Local Line (km)', type: 'number', required: true },
         { id: 'local_line_config', label: 'Local Line Configuration', type: 'select', options: [] },
         { id: 'local_conductor_type', label: 'Local Line Conductor', type: 'select', options: [] },
       ],
