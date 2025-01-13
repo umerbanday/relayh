@@ -81,19 +81,12 @@ const CalculatorGrid = () => {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          p: { xs: 1, sm: 2 },
           '& .MuiModal-backdrop': {
             backdropFilter: 'blur(3px)'
           }
         }}
       >
-        <div style={{ 
-          width: '100%', 
-          maxWidth: '600px',
-          maxHeight: '90vh',
-          margin: '0 auto',
-          position: 'relative'
-        }}>
+        <div >
           {selectedCalculator?.id === 'line-parameters' ? (
             <LineParameterCalculator />
           ) : (

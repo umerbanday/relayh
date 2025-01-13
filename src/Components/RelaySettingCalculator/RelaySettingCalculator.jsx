@@ -231,7 +231,8 @@ export default function RelaySettingCalculator({ initialFunction, relayModel, on
           p: 3,
           borderRadius: 'md',
           boxShadow: 'lg',
-          maxHeight: '90vh',
+          maxHeight: '80vh',
+          marginTop: '7vh',
           overflow: 'hidden', // Changed from 'auto' to 'hidden'
           display: 'flex',
           flexDirection: 'column'
@@ -249,7 +250,7 @@ export default function RelaySettingCalculator({ initialFunction, relayModel, on
         </Box>
         
         <Typography level="h4" component="h1" sx={{ mb: 3, textAlign: 'center' }}>
-          {showResults ? 'Calculation Results' : 'Relay Setting Calculator'}
+          {showResults ? 'Calculation Results' : 'Relay Calculator'}
         </Typography>
 
         {!showResults && (
