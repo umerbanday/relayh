@@ -66,7 +66,10 @@ const RelayCard = ({ relay }) => {
       <Modal
         aria-labelledby="modal-title"
         open={open}
-        onClose={() => setOpen(false)}
+        onClose={() => {
+          setOpen(false);
+          setSelectedFunction(null);
+        }}
         sx={{
           display: 'flex',
           alignItems: 'center',
@@ -83,9 +86,12 @@ const RelayCard = ({ relay }) => {
           position: 'relative'
         }}>
           <RelaySettingCalculator 
-            initialFunction={selectedFunction}
             relayModel={relay.name}
-            onClose={() => setOpen(false)}
+            initialFunction={selectedFunction}
+            onClose={() => {
+              setOpen(false);
+              setSelectedFunction(null);
+            }}
           />
         </div>
       </Modal>

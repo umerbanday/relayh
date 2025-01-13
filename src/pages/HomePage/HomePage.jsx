@@ -1,10 +1,11 @@
-import React from 'react'
+import React from 'react';
 import styles from './Home.module.css'
 import { Typography, Input, Tabs, TabList, Tab, TabPanel } from '@mui/joy'
 import SearchIcon from '@mui/icons-material/Search';
 import RelayGrid from '../../Components/RelayGrid/RelayGrid'
 import Header from '../../Components/Header/Header'
 import LineParameterCalculator from '../../Components/LineParameterCalculator/LineParameterCalculator';
+import CalculatorGrid from '../../Components/CalculatorGrid/CalculatorGrid';
 
 function HomePage() {
   return (
@@ -19,18 +20,18 @@ function HomePage() {
       >
         <TabList disableUnderline tabFlex={1}
           sx={{ paddingLeft: "30px", paddingRight: "30px" }}>
-          <Tab variant="plain" color="primary">Line Calculator</Tab>
+          <Tab variant="plain" color="primary">Calculators</Tab>
           <Tab variant="plain" color="primary">Relays</Tab>
         </TabList>
         <TabPanel value={0}>
-          <LineParameterCalculator />
+          <CalculatorGrid />
         </TabPanel>
         <TabPanel value={1}>
           <RelayGrid />
         </TabPanel>
       </Tabs>
     </div>
-  )
+  );
 }
 
 //heading sction containing the heading and the subheading
