@@ -228,11 +228,13 @@ export default function RelaySettingCalculator({ initialFunction, relayModel, on
         sx={{
           maxWidth: 600,
           position:"relative",
-          bgcolor: 'background.paper',
+        
           p: 3,
           borderRadius: 'md',
           maxHeight: '75vh',
           marginTop: '7vh',
+          marginLeft: '20px',
+          marginRight: '20px',
           overflow: 'hidden', // Changed from 'auto' to 'hidden'
           display: 'flex',
           flexDirection: 'column'

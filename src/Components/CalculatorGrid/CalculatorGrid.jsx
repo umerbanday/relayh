@@ -80,18 +80,10 @@ const CalculatorGrid = () => {
         sx={{
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'center',
-          '& .MuiModal-backdrop': {
-            backdropFilter: 'blur(3px)'
-          }
+          justifyContent: 'center'
         }}
       >
-        <div style={{ 
-          width: '95%', 
-          maxWidth: '600px',
-          margin: '20px',
-          marginTop:"30px",
-        }}>
+       
           {selectedCalculator?.id === 'line-parameters' ? (
             <LineParameterCalculator />
           ) : (
@@ -103,7 +95,7 @@ const CalculatorGrid = () => {
               />
             )
           )}
-        </div>
+        
       </Modal>
     </>
   );
