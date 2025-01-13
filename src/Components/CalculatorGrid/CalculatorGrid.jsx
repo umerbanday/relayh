@@ -87,9 +87,10 @@ const CalculatorGrid = () => {
         }}
       >
         <div style={{ 
-          width: '90%', 
+          width: '95%', 
           maxWidth: '600px',
-          margin: '20px'
+          margin: '20px',
+          marginTop:"30px",
         }}>
           {selectedCalculator?.id === 'line-parameters' ? (
             <LineParameterCalculator />
