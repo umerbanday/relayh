@@ -92,8 +92,8 @@ const stickyButtonStyles = {
 };
 
 const CalculatorView = ({ currentFunctionConfig, dynamicOptions, handleInputChange, onCalculate }) => (
-  <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100%' }}>
-    <Box sx={{ flexGrow: 1, overflowY: 'auto', pb: 2 }}>
+  <Box sx={{ display: 'flex',position:"relative", flexDirection: 'column', minHeight: '100%' }}>
+    <Box sx={{ flexGrow: 1, overflowY: 'auto',overflowX:"hidden", pb: 2 }}>
       <Grid container spacing={2}>
         {currentFunctionConfig.inputs.map((input) => (
           <Grid xs={12} md={6} key={input.id}>
@@ -227,6 +227,7 @@ export default function RelaySettingCalculator({ initialFunction, relayModel, on
         sx={{
           maxWidth: 600,
           zIndex: 9999,
+          position:"relative",
           bgcolor: 'background.paper',
           p: 3,
           borderRadius: 'md',
@@ -238,12 +239,12 @@ export default function RelaySettingCalculator({ initialFunction, relayModel, on
           flexDirection: 'column'
         }}
       >
-        <Box sx={{ display: 'flex', justifyContent: 'flex-end', mb: 2 }}>
+        <Box sx={{ position: 'absolute', top: 20, right: 20 }}>
           <Button 
             variant="plain" 
             color="neutral" 
             onClick={onClose}
-            size="sm"
+            size="md"
           >
             ✕
           </Button>

@@ -17,10 +17,10 @@ export const relayProtectionConfigs = {
         { id: 'line_length', label: 'Protected Line Length (km)', type: 'number', required: true },
         { id: 'protected_line_config', label: 'Protected Line Configuration', type: 'select', options: [] },
         { id: 'protected_conductor_type', label: 'Protected Line Conductor', type: 'select', options: [] },
-        // Longest remote line inputs
-        { id: 'longest_remote_line', label: 'Longest Remote Line Length (km)', type: 'number', required: true },
-        { id: 'remote_line_config', label: 'Remote Line Configuration', type: 'select', options: [] },
-        { id: 'remote_conductor_type', label: 'Remote Line Conductor', type: 'select', options: [] },
+        // Longest adjacent line inputs
+        { id: 'longest_adjacent_line', label: 'Longest Adjacent Line Length (km)', type: 'number', required: true },
+        { id: 'adjacent_line_config', label: 'Adjacent Line Configuration', type: 'select', options: [] },
+        { id: 'adjacent_conductor_type', label: 'Adjacent Line Conductor', type: 'select', options: [] },
         // Shortest local line inputs
         { id: 'shortest_local_line', label: 'Shortest Local Line Length (km)', type: 'number', required: true },
         { id: 'local_line_config', label: 'Local Line Configuration', type: 'select', options: [] },
@@ -39,11 +39,11 @@ export const relayProtectionConfigs = {
           inputs.line_length
         );
 
-        const remoteLineParams = calculateLineParameters(
+        const adjacentLineParams = calculateLineParameters(
           inputs.voltage_level,
-          inputs.remote_line_config,
-          inputs.remote_conductor_type,
-          inputs.longest_remote_line
+          inputs.adjacent_line_config,
+          inputs.adjacent_conductor_type,
+          inputs.longest_adjacent_line
         );
 
         const localLineParams = calculateLineParameters(
@@ -53,7 +53,7 @@ export const relayProtectionConfigs = {
           inputs.shortest_local_line
         );
 
-        if (!protectedLineParams || !remoteLineParams || !localLineParams) return null;
+        if (!protectedLineParams || !adjacentLineParams || !localLineParams) return null;
 
 
         // Protected line impedance calculations
@@ -69,10 +69,10 @@ export const relayProtectionConfigs = {
         // Zone 2 considers protected line + 50% of shortest adjacent line
         const zone2Reach = (Z1_mag*1.5) * ctVtRatio;
 
-        // Zone 3 considers protected line + 100% of longest remote line
+        // Zone 3 considers protected line + 100% of longest adjacent line
         const zone3Reach = (Z1_mag + Math.sqrt(
-          Math.pow(remoteLineParams.positiveSeq.R, 2) + 
-          Math.pow(remoteLineParams.positiveSeq.X, 2)
+          Math.pow(adjacentLineParams.positiveSeq.R, 2) + 
+          Math.pow(adjacentLineParams.positiveSeq.X, 2)
         )) * ctVtRatio *1.2;
 
         // Zone 4 (reverse) uses local line parameters
@@ -135,9 +135,9 @@ export const relayProtectionConfigs = {
               'Z1': protectedLineParams.positiveSeqPerKm.R.toFixed(6) + ' + j' + protectedLineParams.positiveSeqPerKm.X.toFixed(6),
               'Z0': protectedLineParams.zeroSeqPerKm.R0.toFixed(6) + ' + j' + protectedLineParams.zeroSeqPerKm.X0.toFixed(6)
             },
-            'Remote Line': {
-              'Z1': remoteLineParams.positiveSeqPerKm.R.toFixed(6) + ' + j' + remoteLineParams.positiveSeqPerKm.X.toFixed(6),
-              'Z0': remoteLineParams.zeroSeqPerKm.R0.toFixed(6) + ' + j' + remoteLineParams.zeroSeqPerKm.X0.toFixed(6)
+            'Adjacent Line': {
+              'Z1': adjacentLineParams.positiveSeqPerKm.R.toFixed(6) + ' + j' + adjacentLineParams.positiveSeqPerKm.X.toFixed(6),
+              'Z0': adjacentLineParams.zeroSeqPerKm.R0.toFixed(6) + ' + j' + adjacentLineParams.zeroSeqPerKm.X0.toFixed(6)
             },
             'Local Line': {
               'Z1': localLineParams.positiveSeqPerKm.R.toFixed(6) + ' + j' + localLineParams.positiveSeqPerKm.X.toFixed(6),
@@ -185,10 +185,10 @@ export const relayProtectionConfigs = {
 
           return {
             protected_line_config: configs,
-            remote_line_config: configs,
+            adjacent_line_config: configs,
             local_line_config: configs,
             protected_conductor_type: getConfigConductors('protected_line_config'),
-            remote_conductor_type: getConfigConductors('remote_line_config'),
+            adjacent_conductor_type: getConfigConductors('adjacent_line_config'),
             local_conductor_type: getConfigConductors('local_line_config')
           };
         }
