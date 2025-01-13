@@ -132,7 +132,7 @@ const CalculatorView = ({ currentFunctionConfig, dynamicOptions, handleInputChan
 
 const ResultView = ({ results, onBack }) => (
   <>
-    <Box sx={{ display: 'flex', justifyContent: 'flex-start', mb: 2 }}>
+    <Box sx={{ display: 'flex', justifyContent: 'flex-start', mb: 2 ,minHeight:"100%",}}>
       <Button 
         variant="outlined" 
         color="neutral" 
@@ -149,6 +149,7 @@ const ResultView = ({ results, onBack }) => (
       sx={{
         p: 2,
         borderRadius: 'sm',
+        marginTop: 2,
         maxHeight: '70vh',
         overflow: 'auto'
       }}
