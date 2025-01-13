@@ -233,7 +233,7 @@ export default function RelaySettingCalculator({ initialFunction, relayModel, on
           p: 3,
           borderRadius: 'md',
           boxShadow: 'lg',
-          maxHeight: '80vh',
+          maxHeight: '75vh',
           marginTop: '7vh',
           overflow: 'hidden', // Changed from 'auto' to 'hidden'
           display: 'flex',
