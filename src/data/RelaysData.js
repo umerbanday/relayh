@@ -10,7 +10,7 @@ const RelaysData = [
       voltage: "24V",
       current: "10A",
       type: "SPDT",
-      protectionFunctions: ["Overcurrent", "Short Circuit", "Ground Fault"],
+      protectionFunctions: ["Overcurrent","distance-21", "Short Circuit", "Ground Fault"],
     },
     image: require('../assets/relays/p442/image.png'),
     price: 29.99

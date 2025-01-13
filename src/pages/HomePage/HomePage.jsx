@@ -6,7 +6,6 @@ import RelayGrid from '../../Components/RelayGrid/RelayGrid'
 import Header from '../../Components/Header/Header'
 import LineParameterCalculator from '../../Components/LineParameterCalculator/LineParameterCalculator';
 
-
 function HomePage() {
   return (
     <div className={styles.mainContainer}>
@@ -16,27 +15,20 @@ function HomePage() {
       <Tabs
         orientation="horizontal"
         size="sm"
-        sx={{ width: '100%', margin: 'auto',marginTop:"20px" }}
+        sx={{ width: '100%', margin: 'auto', marginTop: "20px" }}
       >
-        <TabList disableUnderline tabFlex={1} 
-        sx={{paddingLeft:"30px",paddingRight:"30px"}}>
-          <Tab
-            variant="plain"
-            color="primary">Line Calculator</Tab>
-            <Tab
-            variant="plain"
-            color="primary">Relays</Tab>
+        <TabList disableUnderline tabFlex={1}
+          sx={{ paddingLeft: "30px", paddingRight: "30px" }}>
+          <Tab variant="plain" color="primary">Line Calculator</Tab>
+          <Tab variant="plain" color="primary">Relays</Tab>
         </TabList>
         <TabPanel value={0}>
-        <LineParameterCalculator />
+          <LineParameterCalculator />
         </TabPanel>
         <TabPanel value={1}>
-        
-        <RelayGrid />
+          <RelayGrid />
         </TabPanel>
       </Tabs>
-     
-
     </div>
   )
 }
