@@ -63,7 +63,8 @@ export default function LineParameterCalculator() {
         <Sheet 
           variant="outlined" 
           sx={{ 
-            maxWidth: 600, 
+            maxWidth: 600,
+            width:"100%",
             mx: 'auto', 
             my: 4, 
             p: 3, 

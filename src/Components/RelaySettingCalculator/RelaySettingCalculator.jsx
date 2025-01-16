@@ -9,6 +9,7 @@ import Option from '@mui/joy/Option';
 import Grid from '@mui/joy/Grid';
 import Box from '@mui/joy/Box';
 import { relayProtectionConfigs } from '../../utils/relayProtectionConfigs';
+import usePdfGenerator from '../../hooks/usePdfGenerator';
 
 const ResultItem = ({ label, value, level = 0 }) => (
   <Box 
@@ -130,9 +131,9 @@ const CalculatorView = ({ currentFunctionConfig, dynamicOptions, handleInputChan
   </Box>
 );
 
-const ResultView = ({ results, onBack }) => (
+const ResultView = ({ results, onBack, onDownload }) => (
   <>
-    <Box sx={{ display: 'flex', justifyContent: 'flex-start', mb: 2 ,minHeight:"100%",}}>
+    <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 2,gap:'20px', minHeight: "100%" }}>
       <Button 
         variant="outlined" 
         color="neutral" 
@@ -141,6 +142,15 @@ const ResultView = ({ results, onBack }) => (
         size="sm"
       >
         Back to Calculator
+      </Button>
+      <Button
+        variant="solid"
+        color="primary"
+        onClick={onDownload}
+        startDecorator="↓"
+        size="sm"
+      >
+        Download PDF
       </Button>
     </Box>
     <Sheet
@@ -165,6 +175,7 @@ export default function RelaySettingCalculator({ initialFunction, relayModel, on
   const [results, setResults] = useState(null);
   const [dynamicOptions, setDynamicOptions] = useState({});
   const [showResults, setShowResults] = useState(false);
+  const { downloadPdf } = usePdfGenerator();
 
   useEffect(() => {
     if (initialFunction && relayModel) {
@@ -216,6 +227,12 @@ export default function RelaySettingCalculator({ initialFunction, relayModel, on
 
   const handleBack = () => {
     setShowResults(false);
+  };
+
+  const handleDownload = () => {
+    if (results && currentFunctionConfig) {
+      downloadPdf(results, relayModel, currentFunctionConfig.name);
+    }
   };
 
   const currentRelayConfig = relayProtectionConfigs[relayModel];
@@ -273,7 +290,11 @@ export default function RelaySettingCalculator({ initialFunction, relayModel, on
 
         {currentFunctionConfig && (
           showResults ? (
-            <ResultView results={results} onBack={handleBack} />
+            <ResultView 
+              results={results} 
+              onBack={handleBack} 
+              onDownload={handleDownload}
+            />
           ) : (
             <CalculatorView 
               currentFunctionConfig={currentFunctionConfig}

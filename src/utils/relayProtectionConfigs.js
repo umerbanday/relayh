@@ -155,16 +155,16 @@ export const relayProtectionConfigs = {
 
           'Resistive Reach': {
           // Resistive reach calculations
-          'Load Resistance Primary (Ω)': loadResistance.toFixed(3),
-          'Resistive Reach Secondary Ph-Ph (Ω)': resistiveReachSecondaryPh.toFixed(3),
-          'Resistive Reach Secondary Ph-G (Ω)': resistiveReachSecondaryEf.toFixed(3),
+          'Load Resistance Primary (Ohms)': loadResistance.toFixed(3),
+          'Resistive Reach Secondary Ph-Ph (Ohms)': resistiveReachSecondaryPh.toFixed(3),
+          'Resistive Reach Secondary Ph-G (Ohms)': resistiveReachSecondaryEf.toFixed(3),
           },
           // Zone Reaches
           'Zone Reaches': {
-            'Zone 1 (Ω)': zone1Reach.toFixed(3),
-            'Zone 2 (Ω)': zone2Reach.toFixed(3),
-            'Zone 3 (Ω)': zone3Reach.toFixed(3),
-            'Zone 4 (Ω) [Reverse]': zone4Reach.toFixed(3)
+            'Zone 1 (Ohms)': zone1Reach.toFixed(3),
+            'Zone 2 (Ohms)': zone2Reach.toFixed(3),
+            'Zone 3 (Ohms)': zone3Reach.toFixed(3),
+            'Zone 4 (Ohms) [Reverse]': zone4Reach.toFixed(3)
           }
         };
       },
