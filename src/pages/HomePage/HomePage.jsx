@@ -18,7 +18,7 @@ function HomePage() {
       <Tabs
         orientation="horizontal"
         size="sm"
-        sx={{ width: '100%', margin: 'auto', marginTop: "20px" }}
+        sx={{ width: '100%',  margin:'20px' }}
       >
         <TabList disableUnderline tabFlex={1}
           sx={{ paddingLeft: "30px", paddingRight: "30px" }}>
