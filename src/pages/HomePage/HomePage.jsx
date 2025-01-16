@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './Home.module.css'
 import { Typography, Input, Tabs, TabList, Tab, TabPanel } from '@mui/joy'
+import { useState } from 'react';
 import SearchIcon from '@mui/icons-material/Search';
 import RelayGrid from '../../Components/RelayGrid/RelayGrid'
 import Header from '../../Components/Header/Header'
@@ -8,11 +9,12 @@ import LineParameterCalculator from '../../Components/LineParameterCalculator/Li
 import CalculatorGrid from '../../Components/CalculatorGrid/CalculatorGrid';
 
 function HomePage() {
+  const [query,setquery]=useState('')
   return (
     <div className={styles.mainContainer}>
       <Header />
       <Heading />
-      <SearchBar />
+      <SearchBar query={query} setquery={setquery}/>
       <Tabs
         orientation="horizontal"
         size="sm"
@@ -24,7 +26,7 @@ function HomePage() {
           <Tab variant="plain" color="primary">Relays</Tab>
         </TabList>
         <TabPanel value={0}>
-          <CalculatorGrid />
+          <CalculatorGrid filterString={query} />
         </TabPanel>
         <TabPanel value={1}>
           <RelayGrid />
@@ -121,7 +123,8 @@ function Heading() {
 
 //searchbar section containing the searchbar and the search button
 
-function SearchBar() {
+function SearchBar({query,setquery}) {
+  
   return (
     <div className={styles.searchContainer}>
 
@@ -129,7 +132,9 @@ function SearchBar() {
         size="sm"
         placeholder="Search"
         fullWidth
+        value={query}
         startDecorator={<SearchIcon />}
+        onChange={(e)=>{setquery(e.target.value)}}
       />
 
     </div>
