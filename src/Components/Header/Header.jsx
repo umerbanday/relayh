@@ -4,13 +4,15 @@ import { Box, Button } from '@mui/joy';
 import Logo_high from '../../assets/Logo_high.png';
 import styles from './Header.module.css';
 import '@fontsource/inter';
+import { useNavigate } from 'react-router-dom';
 
 function Header() {
   const location = useLocation();
+  const navigator = useNavigate();
   
   return (
     <div className={styles.mainContainer}>
-      <img src={Logo_high} height={35} className={styles.logo} alt="logo" />
+      <img onClick={()=>{navigator('/')}} src={Logo_high} height={35} className={styles.logo} alt="logo" />
       <div className={styles.links}>
         <Link to="/" style={{ textDecoration: 'none' }}>
           <Button 
