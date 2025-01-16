@@ -20,7 +20,7 @@ function AboutPage() {
         gap: 4
       }}>
         <Card variant="outlined" sx={{ p: 4 }}>
-          <Typography level="h2" sx={{ mb: 2 }}>
+          <Typography level="h3" sx={{ mb: 2 }}>
             About This Site
           </Typography>
           <Typography>
@@ -28,7 +28,7 @@ function AboutPage() {
           </Typography>
         </Card>
         <Card variant="outlined" sx={{ p: 4 }}>
-          <Typography level="h2" sx={{ mb: 2 }}>
+          <Typography level="h3" sx={{ mb: 2 }}>
             About Me
           </Typography>
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
