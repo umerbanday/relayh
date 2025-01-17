@@ -1,11 +1,15 @@
-.mainContainer{
-    display:grid;
+.mainContainer {
+    display: grid;
     grid-template-columns: repeat(auto-fill, minmax(336px, 1fr));
-    grid-gap: 36px;
-    width:100%;
+    grid-gap: 20px;
+    width: 100%;
     box-sizing: border-box;
-    padding: 30px;
-    margin-top: 20px;
 
+}
 
+@media screen and (max-width: 600px) {
+    .mainContainer {
+        grid-gap: 20px;
+        grid-template-columns: 1fr;
+    }
 }

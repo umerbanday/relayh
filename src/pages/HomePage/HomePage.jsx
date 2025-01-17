@@ -1,11 +1,11 @@
 import React from 'react';
 import styles from './Home.module.css'
+import {tabClasses} from '@mui/joy';
 import { Typography, Input, Tabs, TabList, Tab, TabPanel } from '@mui/joy'
 import { useState } from 'react';
 import SearchIcon from '@mui/icons-material/Search';
 import RelayGrid from '../../Components/RelayGrid/RelayGrid'
 import Header from '../../Components/Header/Header'
-import LineParameterCalculator from '../../Components/LineParameterCalculator/LineParameterCalculator';
 import CalculatorGrid from '../../Components/CalculatorGrid/CalculatorGrid';
 
 function HomePage() {
@@ -14,24 +14,36 @@ function HomePage() {
     <div className={styles.mainContainer}>
       <Header />
       <Heading />
-      <SearchBar query={query} setquery={setquery}/>
-      <Tabs
-        orientation="horizontal"
-        size="sm"
-        sx={{ width: '100%',  margin:'20px' }}
+
+      <Tabs aria-label="tabs" defaultValue={0} sx={{ bgcolor: 'transparent',border:'0.5px solid lightgrey',borderRadius:'10px',height:'100%',margin:'20px',padding:'20px',boxSizing:'border-box' }}>
+        <TabList
+  
+        sx={{
+          p: 0.5,
+          gap: 0.5,
+          borderRadius: 'xl',
+          bgcolor: 'background.level1',
+          [`& .${tabClasses.root}[aria-selected="true"]`]: {
+            boxShadow: 'sm',
+            fontWeight:'500',
+            bgcolor: 'background.surface',
+          },
+        }}
       >
-        <TabList disableUnderline tabFlex={1}
-          sx={{ paddingLeft: "30px", paddingRight: "30px" }}>
-          <Tab variant="plain" color="primary">Calculators</Tab>
-          <Tab variant="plain" color="primary">Relays</Tab>
+          <Tab disableIndicator variant="plain" color="primary">Calculators</Tab>
+          <Tab disableIndicator variant="plain" color="primary">Relays</Tab>
         </TabList>
-        <TabPanel value={0}>
+
+        <TabPanel sx={{padding:'0',marginTop:'20px'}} value={0}>
+        <SearchBar query={query} setquery={setquery}/>  
           <CalculatorGrid filterString={query} />
         </TabPanel>
-        <TabPanel value={1}>
+        <TabPanel sx={{padding:'0',marginTop:'20px'}} value={1}>
+      
           <RelayGrid />
         </TabPanel>
       </Tabs>
+    
     </div>
   );
 }
