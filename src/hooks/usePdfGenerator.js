@@ -119,7 +119,14 @@ const usePdfGenerator = () => {
     doc.save(`${relayModel}_${functionName}_settings.pdf`);
   };
 
-  return { downloadPdf };
+  const openPdf = (results, relayModel, functionName) => {
+    const doc = generatePdf(results, relayModel, functionName);
+    const pdfBlob = doc.output('blob');
+    const pdfUrl = URL.createObjectURL(pdfBlob);
+    window.open(pdfUrl);
+  };
+
+  return { downloadPdf, openPdf };
 };
 
 export default usePdfGenerator;

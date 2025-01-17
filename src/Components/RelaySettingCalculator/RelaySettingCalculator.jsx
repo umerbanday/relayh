@@ -175,7 +175,7 @@ export default function RelaySettingCalculator({ initialFunction, relayModel, on
   const [results, setResults] = useState(null);
   const [dynamicOptions, setDynamicOptions] = useState({});
   const [showResults, setShowResults] = useState(false);
-  const { downloadPdf } = usePdfGenerator();
+  const { downloadPdf,openPdf } = usePdfGenerator();
 
   useEffect(() => {
     if (initialFunction && relayModel) {
@@ -232,6 +232,7 @@ export default function RelaySettingCalculator({ initialFunction, relayModel, on
   const handleDownload = () => {
     if (results && currentFunctionConfig) {
       downloadPdf(results, relayModel, currentFunctionConfig.name);
+      openPdf(results, relayModel, currentFunctionConfig.name)
     }
   };
 
