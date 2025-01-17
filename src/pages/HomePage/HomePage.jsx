@@ -15,8 +15,8 @@ function HomePage() {
       <Header />
       <Heading />
 
-      <Tabs aria-label="tabs" defaultValue={0} sx={{ bgcolor: 'transparent',border:'0.5px solid lightgrey',borderRadius:'10px',height:'100%',margin:'20px',padding:'20px',boxSizing:'border-box' }}>
-        <div style={{position:'sticky',top:'80px',zIndex:'1000',backgroundColor:'white',paddingBottom:'20px'}}>
+      <Tabs aria-label="tabs" defaultValue={0} sx={{ bgcolor: 'transparent',border:'0.5px solid lightgrey',borderRadius:'10px',height:'100%',margin:'20px',padding:'20px',paddingTop:'0',boxSizing:'border-box' }}>
+        <div style={{position:'sticky',top:'55px',zIndex:'1000',backgroundColor:'white',paddingTop:'20px',paddingBottom:'20px'}}>
         <TabList
   
         sx={{
