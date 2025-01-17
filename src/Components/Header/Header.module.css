@@ -1,5 +1,5 @@
 .mainContainer{
-position: sticky;
+position: fixed;
 display: flex;
 z-index: 2000;
 width:100%;
