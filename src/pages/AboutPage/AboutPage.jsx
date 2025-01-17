@@ -12,11 +12,14 @@ function AboutPage() {
     <div className={styles.mainContainer} >
       <Header />
       <Box sx={{ 
-        maxWidth: 1000, 
+        maxWidth: 1000,
+        boxSizing:'border-box',
+        width:'100%',
         margin: 'auto', 
         padding: 4,
         display: 'flex',
         flexDirection: 'column',
+        marginTop:'55px',
         gap: 4
       }}>
         <Card variant="outlined" sx={{ p: 4 }}>
@@ -24,7 +27,7 @@ function AboutPage() {
             About This Site
           </Typography>
           <Typography>
-            This site is a personal pproject designed to help fellow protection engineers during their job.
+            This site is a personal project designed to help fellow protection engineers during their job.
           </Typography>
         </Card>
         <Card variant="outlined" sx={{ p: 4 }}>

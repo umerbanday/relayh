@@ -13,6 +13,7 @@ function HomePage() {
   const [currentTab, setCurrentTab] = useState(0);
   const headerRef = useRef(null);
   const headingRef = useRef(null);
+  const [pageLoaded, setpageLoaded] = useState(false);
 
   const resetScroll = () => {
     const headerHeight = headerRef.current?.offsetHeight || 0;
@@ -28,7 +29,10 @@ function HomePage() {
   }
 
   useEffect(() => {
-   resetScroll()
+    if(pageLoaded){
+      resetScroll()
+    }
+   setpageLoaded(true)
   }, [query, currentTab]);
 
   return (
