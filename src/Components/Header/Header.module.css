@@ -6,6 +6,7 @@ width:100%;
 background-color: rgb(252, 246, 239);
 font-family: 'Inter', sans-serif;
 align-self: flex-start;
+box-sizing: border-box;
 padding:30px;
 padding-top: 10px;
 padding-bottom: 10px;

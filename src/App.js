@@ -3,6 +3,7 @@ import '@fontsource/inter';
 import HomePage from './pages/HomePage/HomePage';
 import AboutPage from './pages/AboutPage/AboutPage';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import SubstationDiagram from './Components/Substation/Substation';
 
 function App() {
   return (
