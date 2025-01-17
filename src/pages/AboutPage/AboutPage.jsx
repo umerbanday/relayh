@@ -49,7 +49,7 @@ function AboutPage() {
               </Box>
               <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
                 <SchoolIcon />
-                <Typography>NIT Srinagar '16</Typography>
+                <Typography>NIT Srinagar '15</Typography>
               </Box>
             </Box>
           </Box>
