@@ -16,6 +16,7 @@ function HomePage() {
       <Heading />
 
       <Tabs aria-label="tabs" defaultValue={0} sx={{ bgcolor: 'transparent',border:'0.5px solid lightgrey',borderRadius:'10px',height:'100%',margin:'20px',padding:'20px',boxSizing:'border-box' }}>
+        <div style={{position:'sticky',top:'80px',zIndex:'1000',backgroundColor:'white',paddingBottom:'20px'}}>
         <TabList
   
         sx={{
@@ -33,9 +34,10 @@ function HomePage() {
           <Tab disableIndicator variant="plain" color="primary">Calculators</Tab>
           <Tab disableIndicator variant="plain" color="primary">Relays</Tab>
         </TabList>
-
-        <TabPanel sx={{padding:'0',marginTop:'20px'}} value={0}>
         <SearchBar query={query} setquery={setquery}/>  
+        </div>
+        <TabPanel sx={{padding:'0',marginTop:'20px'}} value={0}>
+       
           <CalculatorGrid filterString={query} />
         </TabPanel>
         <TabPanel sx={{padding:'0',marginTop:'20px'}} value={1}>
