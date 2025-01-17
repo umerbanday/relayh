@@ -2,8 +2,66 @@ import { transmissionLineData } from "../data/transmissionLineData";
 import { calculateLineParameters } from './lineParameterUtils';
 
 export const relayProtectionConfigs = {
+  'Line Parameter Calculation': {
+    'line-parameters': {
+      name: 'Line Parameter Calculation',
+      inputs: [
+        { id: 'voltage_level', label: 'Voltage Level (kV)', type: 'select',
+          options: [765, 400, 220, 132, 66].map(v => v.toString()) },
+        { id: 'line_config', label: 'Line Configuration', type: 'select', options: [] },
+        { id: 'conductor_type', label: 'Conductor Type', type: 'select', options: [] },
+      ],
+      calculate: (inputs) => {
+        const lineParams = calculateLineParameters(
+          inputs.voltage_level,
+          inputs.line_config,
+          inputs.conductor_type,
+          1
+        );
+
+        if (!lineParams) return null;
+
+        return {
+          'Line Parameters': {
+            'Positive Sequence': {
+              'R (Ohms)': lineParams.positiveSeq.R.toFixed(6),
+              'X (Ohms)': lineParams.positiveSeq.X.toFixed(6),
+              'B (S)': lineParams.positiveSeq.B.toFixed(6)
+            },
+            'Zero Sequence': {
+              'R0 (Ohms)': lineParams.zeroSeq.R0.toFixed(6),
+              'X0 (Ohms)': lineParams.zeroSeq.X0.toFixed(6),
+              'B0 (S)': lineParams.zeroSeq.B0.toFixed(6)
+            }
+          }
+        };
+      },
+      updateOptions: (currentInputs) => {
+        if (currentInputs.voltage_level) {
+          const voltageData = transmissionLineData.find(
+            v => v.voltage === Number(currentInputs.voltage_level)
+          );
+          const configs = [...new Set(voltageData?.configs.map(c => c.config) || [])];
+          
+          const getConfigConductors = (configType) => {
+            return currentInputs[configType] ? 
+              [...new Set(voltageData?.configs
+                .filter(c => c.config === currentInputs[configType])
+                .flatMap(c => c.conductors) || [])] : [];
+          };
+
+          return {
+            line_config: configs,
+            conductor_type: getConfigConductors('line_config')
+          };
+        }
+        return {};
+      }
+    }
+  },
 
   'Schneider P442': {
+
     'distance-21': {
       name: 'Distance Protection (21)',
       inputs: [
@@ -232,6 +290,7 @@ export const relayProtectionConfigs = {
         return { /* calculation results */ };
       }
     }
-  }
+  },
+  
   // Add more relay models as needed
 };

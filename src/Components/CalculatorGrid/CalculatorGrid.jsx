@@ -2,19 +2,13 @@ import React, { useState,useEffect } from 'react';
 import { Card, Typography, CardContent, Modal } from '@mui/joy';
 import { relayProtectionConfigs } from '../../utils/relayProtectionConfigs';
 import CalculateIcon from '@mui/icons-material/Calculate';
-import LineParameterCalculator from '../LineParameterCalculator/LineParameterCalculator';
 import RelaySettingCalculator from '../RelaySettingCalculator/RelaySettingCalculator';
 import styles from './CalculatorGrid.module.css';
 
 const CalculatorGrid = ({filterString}) => {
     // Collect all unique calculators from relay configs
     const calculators = [
-      // Add Line Parameter Calculator as the first item
-      {
-        id: 'line-parameters',
-        name: 'Line Parameter Calculator',
-        description: 'Calculate transmission line parameters based on voltage level and configuration'
-      }
+     
     ];
   
     // Add relay-specific calculators
@@ -35,7 +29,7 @@ const CalculatorGrid = ({filterString}) => {
   
   useEffect (() => {
     if (filterString&&filterString.length > 0) {
-      const filteredCalculators = calculators.filter((calc) => {
+      const filteredCalculators = calculators?.filter((calc) => {
         return calc.name.toLowerCase().includes(filterString.toLowerCase())||calc.description.toLowerCase().includes(filterString.toLowerCase());
       });
       setfilteredCalculators(filteredCalculators);
@@ -53,7 +47,7 @@ const CalculatorGrid = ({filterString}) => {
   return (
     <>
       <div className={styles.mainContainer}>
-        {filteredCalculators.map((calc) => (
+        {filteredCalculators?.map((calc) => (
           <Card
             key={calc.id}
             variant="outlined"
@@ -98,17 +92,11 @@ const CalculatorGrid = ({filterString}) => {
         }}
       >
        
-          {selectedCalculator?.id === 'line-parameters' ? (
-            <LineParameterCalculator />
-          ) : (
-            selectedCalculator && (
-              <RelaySettingCalculator
-                relayModel={selectedCalculator.relayModel}
-                initialFunction={selectedCalculator.name}
+       <RelaySettingCalculator
+                relayModel={selectedCalculator?.relayModel}
+                initialFunction={selectedCalculator?.name}
                 onClose={() => setSelectedCalculator(null)}
               />
-            )
-          )}
         
       </Modal>
     </>

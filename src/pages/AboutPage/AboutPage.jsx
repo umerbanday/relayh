@@ -34,14 +34,14 @@ function AboutPage() {
           <Typography level="h3" sx={{ mb: 2 }}>
             About Me
           </Typography>
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, flexWrap: 'wrap' }}>
             <Avatar src={myphoto} sx={{ width: 100, height: 100 }} />
             <Box>
               <Typography level="h3">Umer Banday</Typography>
               <Typography>Electrical Engineer</Typography>
-              <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+              <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, flexWrap: 'wrap' }}>
                 <EmailIcon />
-                <Typography>umer.banday@gmail.com</Typography>
+                <Typography sx={{ wordBreak: 'break-all' }}>umer.banday@gmail.com</Typography>
               </Box>
               <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
                 <WorkIcon />
