@@ -63,7 +63,7 @@ const CalculatorGrid = ({filterString}) => {
                 bgcolor: 'background.level1',
               },
              
-              display: 'flex',
+              display: 'flex',  
               flexDirection: 'column'
             }}
             onClick={() => handleCalculatorSelect(calc)}

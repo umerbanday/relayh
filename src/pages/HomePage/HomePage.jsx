@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import styles from './Home.module.css'
 import {tabClasses} from '@mui/joy';
 import { Typography, Input, Tabs, TabList, Tab, TabPanel } from '@mui/joy'
@@ -9,13 +9,43 @@ import Header from '../../Components/Header/Header'
 import CalculatorGrid from '../../Components/CalculatorGrid/CalculatorGrid';
 
 function HomePage() {
-  const [query,setquery]=useState('')
+  const [query, setquery] = useState('')
+  const [currentTab, setCurrentTab] = useState(0);
+  const headerRef = useRef(null);
+  const headingRef = useRef(null);
+
+  const resetScroll = () => {
+    const headerHeight = headerRef.current?.offsetHeight || 0;
+    const headingHeight = headingRef.current?.offsetHeight || 0;
+    const totalOffset = headerHeight + headingHeight;
+
+    console.log('totaloffset',totalOffset)
+    
+    window.scrollTo({ 
+      top: totalOffset-20, 
+      behavior: 'smooth' 
+    });
+  }
+
+  useEffect(() => {
+   resetScroll()
+  }, [query, currentTab]);
+
   return (
     <div className={styles.mainContainer}>
-      <Header />
-      <Heading />
+      <div ref={headerRef}>
+        <Header />
+      </div>
+      <div ref={headingRef}>
+        <Heading />
+      </div>
 
-      <Tabs aria-label="tabs" defaultValue={0} sx={{ bgcolor: 'transparent',border:'0.5px solid lightgrey',borderRadius:'10px',height:'100%',margin:'20px',padding:'20px',paddingTop:'0',boxSizing:'border-box' }}>
+      <Tabs 
+        aria-label="tabs" 
+        value={currentTab}
+        onChange={(event, value) => setCurrentTab(value)}
+        sx={{ bgcolor: 'transparent',border:'0.5px solid lightgrey',borderRadius:'10px',height:'100%',margin:'20px',padding:'20px',paddingTop:'0',boxSizing:'border-box' }}
+      >
         <div style={{position:'sticky',top:'55px',zIndex:'1000',backgroundColor:'white',paddingTop:'20px',paddingBottom:'20px'}}>
         <TabList
   
@@ -37,12 +67,13 @@ function HomePage() {
         <SearchBar query={query} setquery={setquery}/>  
         </div>
         <TabPanel sx={{padding:'0',marginTop:'20px'}} value={0}>
-       
-          <CalculatorGrid filterString={query} />
+
+        <CalculatorGrid filterString={query} />
+         
         </TabPanel>
         <TabPanel sx={{padding:'0',marginTop:'20px'}} value={1}>
-      
-          <RelayGrid />
+        <RelayGrid />
+          
         </TabPanel>
       </Tabs>
     
@@ -149,6 +180,7 @@ function SearchBar({query,setquery}) {
         value={query}
         startDecorator={<SearchIcon />}
         onChange={(e)=>{setquery(e.target.value)}}
+        sx={{ fontSize: '16px' }} // Add this line
       />
 
     </div>

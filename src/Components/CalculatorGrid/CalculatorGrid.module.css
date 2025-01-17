@@ -3,8 +3,9 @@
     grid-template-columns: repeat(auto-fill, minmax(336px, 1fr));
     grid-gap: 20px;
     width: 100%;
+    min-height: 100vh;
     box-sizing: border-box;
-
+    align-items: start; /* Add this line */
 }
 
 @media screen and (max-width: 600px) {
