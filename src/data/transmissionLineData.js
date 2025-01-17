@@ -205,7 +205,7 @@ export const transmissionLineData = [
           config: 'Single ACSR',
           conductors: ['PANTHER D/C'],
           positiveSeq: { R: 7.823E-4, X: 2.323E-3, B: 4.950E-4 },
-          zeroSeq: { R0: 1.957E-4, X0: 7.606E-3, B0: 3.138E-4 }
+          zeroSeq: { R0: 1.957E-3, X0: 7.606E-3, B0: 3.138E-4 }
         }
       ]
     },
