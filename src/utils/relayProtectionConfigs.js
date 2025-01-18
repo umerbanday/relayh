@@ -8,8 +8,8 @@ export const relayProtectionConfigs = {
       inputs: [
         { id: 'voltage_level', label: 'Voltage Level (kV)', type: 'select',
           options: [765, 400, 220, 132, 66].map(v => v.toString()) },
-        { id: 'line_config', label: 'Line Configuration', type: 'select', options: [] },
-        { id: 'conductor_type', label: 'Conductor Type', type: 'select', options: [] },
+        { id: 'line_config', label: 'Conductor Type', type: 'select', options: [] },
+        { id: 'conductor_type', label: 'Line Configuration', type: 'select', options: [] },
       ],
       calculate: (inputs) => {
         const lineParams = calculateLineParameters(
@@ -26,12 +26,12 @@ export const relayProtectionConfigs = {
             'Positive Sequence': {
               'R (Ohms)': lineParams.positiveSeq.R.toFixed(6),
               'X (Ohms)': lineParams.positiveSeq.X.toFixed(6),
-              'B (S)': lineParams.positiveSeq.B.toFixed(6)
+              
             },
             'Zero Sequence': {
               'R0 (Ohms)': lineParams.zeroSeq.R0.toFixed(6),
               'X0 (Ohms)': lineParams.zeroSeq.X0.toFixed(6),
-              'B0 (S)': lineParams.zeroSeq.B0.toFixed(6)
+              
             }
           }
         };

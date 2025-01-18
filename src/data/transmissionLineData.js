@@ -194,6 +194,12 @@ export const transmissionLineData = [
           conductors: ['Moose D/C'],
           positiveSeq: { R: 6.132E-5, X: 5.851E-4, B: 1.990E-3 },
           zeroSeq: { R0: 4.583E-4, X0: 2.438E-3, B0: 1.127E-3 }
+        },
+        {
+          config: 'Single ACFR',
+          conductors: ['ACFR 539 (Zebra Eq) D/C'],
+          positiveSeq: { R: 1.48822E-4, X: 8.6322E-4, B: null },
+          zeroSeq: { R0: 1.107E-3, X0: 4.058E-3, B0: null }
         }
       ]
     },
@@ -206,6 +212,12 @@ export const transmissionLineData = [
           conductors: ['PANTHER D/C'],
           positiveSeq: { R: 7.823E-4, X: 2.323E-3, B: 4.950E-4 },
           zeroSeq: { R0: 1.957E-3, X0: 7.606E-3, B0: 3.138E-4 }
+        },
+        {
+          config: 'Single ACFR',
+          conductors: ['ACFR 281 (Panther Eq) D/C'],
+          positiveSeq: { R: 8.1272E-4, X: 2.21721E-3, B: null },
+          zeroSeq: { R0: 2.568E-3, X0: 4.5242E-3, B0: null }
         }
       ]
     },
